@@ -23,13 +23,20 @@ using UnityEngine;
     }
     void SwimMovement()
     {
-        
+       if(moveDir.x > 0)
+        {
+            moveDir.y = 1f;
+        }
         moveDir = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
-        moveDir = Camera.main.transform.TransformDirection(moveDir);
-        moveDir *= 5;
-
-        movement.controller.Move(moveDir * Time.deltaTime);
-    }
+        moveDir = Camera.main.transform.TransformDirection(moveDir);  
+        if(Input.GetKey(KeyCode.Space))
+        {
+            moveDir.y += 0.55f;
+        }
+        moveDir.y -= 0.10f;      
+        movement.controller.Move(moveDir * 4 * Time.deltaTime);
+ 
+     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Water")
