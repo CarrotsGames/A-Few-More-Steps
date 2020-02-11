@@ -5,7 +5,7 @@ using UnityEngine;
 public class PhotoCamera : MonoBehaviour
 {
     private static PhotoCamera instance;
-    
+    public GameObject PhotoAlbum;
     private Camera photoCam;
     private int photoNum;
     private bool takeScreenshotOnNextFrame;
@@ -36,7 +36,6 @@ public class PhotoCamera : MonoBehaviour
         {
             takeScreenshotOnNextFrame = false;
             RenderTexture renterTex = photoCam.targetTexture;
-
             Texture2D renderResult = new Texture2D(renterTex.width, renterTex.height, TextureFormat.RGB565, false);
             Rect rect = new Rect(0, 0, renterTex.width, renterTex.height);
             renderResult.ReadPixels(rect, 0, 0);
@@ -45,6 +44,8 @@ public class PhotoCamera : MonoBehaviour
             byte[] byteArray = renderResult.EncodeToPNG();
             System.IO.File.WriteAllBytes(Application.dataPath + "/CameraShot.png"  , byteArray);
             Debug.Log("Saved pic to " + Application.dataPath);
+            PhotoAlbum.GetComponent<GetPhotos>().LoadNewSprite(Application.dataPath + "/CameraShot.png");
+
             // clean up
             RenderTexture.ReleaseTemporary(renterTex);
             photoCam.targetTexture = null;
