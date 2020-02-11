@@ -6,12 +6,14 @@ public class MouseLook : MonoBehaviour
 {
     public float sensitivity;
     public Transform playerBody;
-
+    public GameObject player;
     float rotateX = 0f;
 
     private void Start()
     {
-        sensitivity *= 10;
+        player = GameObject.Find("Player");
+         
+           sensitivity *= 10;
         Cursor.lockState = CursorLockMode.Locked;
     }
     // Update is called once per frame
@@ -24,7 +26,8 @@ public class MouseLook : MonoBehaviour
         rotateX = Mathf.Clamp(rotateX, -60, 40f);
 
         transform.localRotation = Quaternion.Euler(rotateX, 0f, 0f);
-        playerBody.Rotate(Vector3.up * mouseX  );
-
+        playerBody.Rotate(Vector3.up * mouseX);
     }
+ 
+ 
 }

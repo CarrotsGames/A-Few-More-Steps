@@ -11,22 +11,37 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundMask;
 
-    private CharacterController controller;
-    private Vector3 velocity;
-    private bool isGrounded;
+    [HideInInspector]
+    public Vector3 velocity;
+    [HideInInspector]
+    public bool canMove;
+    [SerializeField]
+    public bool isSwimming;
+    [HideInInspector]
+    public CharacterController controller;
+    [HideInInspector]
+    public bool isGrounded;
     // Start is called before the first frame update
     void Start()
     {
+        canMove = true;
         controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!isSwimming)
+        {
+            Movement();
+        }
+    }
+    void Movement()
+    {
         // Checks if grounded
         // (can be used for jumping but is currently used to stop adding y velocity when grounded..)
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDist, groundMask);
-        if(!isGrounded && velocity.y < 0)
+        if (!isGrounded && velocity.y < 0)
         {
             velocity.y = -6;
         }
@@ -42,4 +57,5 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
+   
 }
