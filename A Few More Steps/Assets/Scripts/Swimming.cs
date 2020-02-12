@@ -16,7 +16,7 @@ using UnityEngine;
     void Update()
     {
    
-        if (movement.isSwimming)
+        if (PlayerMovement.isSwimming)
         {
             SwimMovement();
         }
@@ -35,14 +35,16 @@ using UnityEngine;
         }
         moveDir.y -= 0.10f;      
         movement.controller.Move(moveDir * 4 * Time.deltaTime);
- 
-     }
+
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Water")
         {
             Debug.Log("swimming");
-            movement.isSwimming = true;
+            PlayerMovement.isSwimming = true;
+            PlayerMovement.stopMovement = true;
+
         }
     }
     private void OnTriggerExit(Collider other)
@@ -50,8 +52,9 @@ using UnityEngine;
         if (other.tag == "Water")
         {
             Debug.Log("ExitWater");
-            movement.isSwimming = false;
-     
+            PlayerMovement.isSwimming = false;
+            PlayerMovement.stopMovement = false;
+
         }
     }
 }

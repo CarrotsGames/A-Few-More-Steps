@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PhotoCamera : MonoBehaviour
 {
+    public static int photoIndex;
     private static PhotoCamera instance;
     public GameObject PhotoAlbum;
     private Camera photoCam;
-    private int photoNum;
+       
     private bool takeScreenshotOnNextFrame;
     private void Start()
     {
@@ -32,7 +33,8 @@ public class PhotoCamera : MonoBehaviour
 
     private void OnPostRender()
     {
-     if(takeScreenshotOnNextFrame)
+        
+        if (takeScreenshotOnNextFrame)
         {
             takeScreenshotOnNextFrame = false;
             RenderTexture renterTex = photoCam.targetTexture;
@@ -42,14 +44,16 @@ public class PhotoCamera : MonoBehaviour
 
             // encodes render2d into png
             byte[] byteArray = renderResult.EncodeToPNG();
-            System.IO.File.WriteAllBytes(Application.dataPath + "/CameraShot.png"  , byteArray);
+            System.IO.File.WriteAllBytes(Application.dataPath + "/CameraShot.png", byteArray);
             Debug.Log("Saved pic to " + Application.dataPath);
             PhotoAlbum.GetComponent<GetPhotos>().LoadNewSprite(Application.dataPath + "/CameraShot.png");
 
             // clean up
             RenderTexture.ReleaseTemporary(renterTex);
             photoCam.targetTexture = null;
+            //photoIndex++;
         }
+         
     }
     private void TakeScreenshot(int width , int height)
     {

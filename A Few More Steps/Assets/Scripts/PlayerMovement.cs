@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 12f;
     public float gravity = -9f;
     public float groundDist = 0.4f;
-
+    public static bool stopMovement;
     public Transform groundCheck;
     public LayerMask groundMask;
 
@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public bool canMove;
     [SerializeField]
-    public bool isSwimming;
+    public static bool isSwimming;
     [HideInInspector]
     public CharacterController controller;
     [HideInInspector]
@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        stopMovement = false;
         canMove = true;
         controller = GetComponent<CharacterController>();
     }
@@ -31,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isSwimming)
+        if (!stopMovement)
         {
             Movement();
         }
