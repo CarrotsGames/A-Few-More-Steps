@@ -183,7 +183,6 @@ MonoBehaviour:
     m_Bits: 0
   velocity: {x: 0, y: 0, z: 0}
   canMove: 0
-  isSwimming: 0
   controller: {fileID: 0}
   isGrounded: 0
 --- !u!114 &4027616773248722428
@@ -208,9 +207,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4027616773942155172}
   - component: {fileID: 4027616773942155171}
-  - component: {fileID: 4027616773942155170}
+  - component: {fileID: 3247391920030657558}
   - component: {fileID: 4027616773942155173}
   - component: {fileID: 4027616773942155169}
+  - component: {fileID: 4027616773942155170}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -275,14 +275,18 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &4027616773942155170
-AudioListener:
+--- !u!114 &3247391920030657558
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4027616773942155175}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e8b0bbb039a562408bcbb16613f42c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4027616773942155173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,3 +315,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.22, z: 0.51}
   m_Center: {x: 0, y: -0.01, z: -0.07}
+--- !u!81 &4027616773942155170
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4027616773942155175}
+  m_Enabled: 1
