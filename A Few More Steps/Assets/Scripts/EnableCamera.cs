@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnableCamera : MonoBehaviour
 {
+    public static bool cameraOn;
     public static bool stopTakingPhotos;
     public GameObject photoAlbum;
     public Camera mainCamera;
@@ -45,12 +46,17 @@ public class EnableCamera : MonoBehaviour
             transform.GetChild(0).gameObject.SetActive(true);
             mainCamera.gameObject.SetActive(false);
             camToggle = 0;
+            PlayerMovement.stopMovement = true;
+            cameraOn = true;
         }
         else
         {
             // turns off camera
             transform.GetChild(0).gameObject.SetActive(false);
             mainCamera.gameObject.SetActive(true);
+            PlayerMovement.stopMovement = false;
+            cameraOn = false;
+
         }
     }
 }

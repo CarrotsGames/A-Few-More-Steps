@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PhotoCamera : MonoBehaviour
 {
+    
     public static int photoIndex;
     private static PhotoCamera instance;
     public GameObject PhotoAlbum;

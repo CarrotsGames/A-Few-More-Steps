@@ -15,6 +15,8 @@ public class GetPhotos : MonoBehaviour
         photoCam = GameObject.Find("PhotoCam");
         photos = new List<Texture2D>();
         toggle = 0;
+        // turn off galery
+        transform.GetChild(0).gameObject.SetActive(false);
     }
     private void Update()
     {
@@ -29,8 +31,11 @@ public class GetPhotos : MonoBehaviour
     {
         if (toggle > 1)
         {
+            if (!EnableCamera.cameraOn)
+            {
+                PlayerMovement.stopMovement = false;
+            }
             EnableCamera.stopTakingPhotos = false;
-            PlayerMovement.stopMovement = false;
             // turn off galery
             transform.GetChild(0).gameObject.SetActive(false);
             toggle = 0;
@@ -40,9 +45,11 @@ public class GetPhotos : MonoBehaviour
         }
         else
         {
+         
+            PlayerMovement.stopMovement = true;
+         
             // stops camera from taking photos
             EnableCamera.stopTakingPhotos = true;
-            PlayerMovement.stopMovement = true;
             // turn on gallery
             transform.GetChild(0).gameObject.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
