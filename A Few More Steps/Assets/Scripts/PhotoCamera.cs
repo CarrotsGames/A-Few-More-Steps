@@ -45,9 +45,9 @@ public class PhotoCamera : MonoBehaviour
 
             // encodes render2d into png
             byte[] byteArray = renderResult.EncodeToPNG();
-            System.IO.File.WriteAllBytes(Application.dataPath + "/CameraShot.png", byteArray);
+            System.IO.File.WriteAllBytes(Application.dataPath + "/CameraShot " + photoIndex  +".png", byteArray);
             Debug.Log("Saved pic to " + Application.dataPath);
-            PhotoAlbum.GetComponent<GetPhotos>().LoadNewSprite(Application.dataPath + "/CameraShot.png");
+            PhotoAlbum.GetComponent<GetPhotos>().LoadNewSprite(Application.dataPath + "/CameraShot " + photoIndex + ".png");
 
             // clean up
             RenderTexture.ReleaseTemporary(renterTex);

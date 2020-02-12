@@ -408,11 +408,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 136055503}
         m_MethodName: DeletePhoto
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -692,11 +692,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 184657439}
         m_MethodName: DeletePhoto
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -982,7 +982,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 233561031}
         m_MethodName: DeletePhoto
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1173,11 +1173,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 245933606}
         m_MethodName: DeletePhoto
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1364,11 +1364,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 250714161}
         m_MethodName: DeletePhoto
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1555,11 +1555,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 274905352}
         m_MethodName: DeletePhoto
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2094,11 +2094,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 461543364}
         m_MethodName: DeletePhoto
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3221,6 +3221,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1093855819}
+  - component: {fileID: 1093855821}
   - component: {fileID: 1093855820}
   m_Layer: 5
   m_Name: PhotoAlbum
@@ -3259,6 +3260,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e96f41890770b74a845f8bd73f8ace0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1093855821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093855818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c720f4eaf940c934f93c1dad034a9558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1103359231
@@ -4027,11 +4040,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1945760888}
         m_MethodName: DeletePhoto
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

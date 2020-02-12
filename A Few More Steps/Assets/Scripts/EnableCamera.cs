@@ -44,6 +44,9 @@ public class EnableCamera : MonoBehaviour
         {
             //turns on camera
             transform.GetChild(0).gameObject.SetActive(true);
+            transform.GetChild(0).gameObject.transform.position = mainCamera.transform.position;
+ 
+
             mainCamera.gameObject.SetActive(false);
             camToggle = 0;
             PlayerMovement.stopMovement = true;

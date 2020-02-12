@@ -7,6 +7,7 @@ public class GetPhotos : MonoBehaviour
 {
     private GameObject mainCam;
     private GameObject photoCam;
+    private bool nullPhoto;
     int toggle;
      List<Texture2D> photos;
     private void Start()
@@ -64,15 +65,21 @@ public class GetPhotos : MonoBehaviour
         Sprite newSprite;
         // loads new texture made from camera
         Texture2D a = LoadTexture(FilePath);
+        CheckForPhoto();
         // creates sprite of texture
         newSprite = Sprite.Create(a, new Rect(0, 0, 800, 800), new Vector2(0, 0), 1);
         GameObject gallery = transform.GetChild(0).gameObject;
-        CheckForPhoto();
+        if (nullPhoto)
+        {
+            nullPhoto = false;    
+            return null;
+        }
         // adds it to the sprite image
         gallery.transform.GetChild(PhotoCamera.photoIndex).GetComponent<Image>().sprite = newSprite;
-        Color alpha = gallery.transform.GetChild(PhotoCamera.photoIndex).GetComponent<Image>().color;
-        alpha.a = 1f;
-        gallery.transform.GetChild(PhotoCamera.photoIndex).GetComponent<Image>().color = alpha;
+         Color alpha = gallery.transform.GetChild(PhotoCamera.photoIndex).GetComponent<Image>().color;
+         alpha.a = 1f;
+         gallery.transform.GetChild(PhotoCamera.photoIndex).GetComponent<Image>().color = alpha;
+      
         return newSprite;
 
     }
@@ -114,6 +121,7 @@ public class GetPhotos : MonoBehaviour
             if (Tex2D.LoadImage(FileData))          
                 return Tex2D;                
         }
+        nullPhoto = true;
         return null;                     
     }
 
