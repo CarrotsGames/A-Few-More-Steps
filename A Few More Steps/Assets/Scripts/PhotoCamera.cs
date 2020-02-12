@@ -51,7 +51,7 @@ public class PhotoCamera : MonoBehaviour
             // clean up
             RenderTexture.ReleaseTemporary(renterTex);
             photoCam.targetTexture = null;
-            //photoIndex++;
+            photoIndex++;
         }
          
     }

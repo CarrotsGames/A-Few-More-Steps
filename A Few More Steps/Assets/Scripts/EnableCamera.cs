@@ -20,13 +20,14 @@ public class EnableCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F))
+        if(Input.GetKeyDown(KeyCode.F) && !stopTakingPhotos)
         {
             camToggle++;
             CameraToggle();
 
         }
-        if (camToggle == 0 && !stopTakingPhotos)
+        // take photos
+        if (PhotoCamera.photoIndex < 8 && camToggle == 0 && !stopTakingPhotos)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {

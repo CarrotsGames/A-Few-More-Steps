@@ -7,13 +7,13 @@ public class DeletePhotos : MonoBehaviour
 {
    public void DeletePhoto()
     {
+        PhotoCamera.photoIndex -= 1;
+        // CLEAR IMAGE (Turn down alpha) 
         Color alpha = GetComponent<Image>().color;
         alpha.a = 0f;
         GetComponent<Image>().color = alpha;
-        this.gameObject.tag = "Untagged";
-        // GetComponent<Image>().sprite
-        // CLEAR IMAGE (Turn down alpha) 
         // REMOVE PHOTO TAG
+        this.gameObject.tag = "Untagged";
 
     }
 }
