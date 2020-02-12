@@ -44,7 +44,7 @@ using UnityEngine;
             Debug.Log("swimming");
             PlayerMovement.isSwimming = true;
             PlayerMovement.stopMovement = true;
-
+            EnableCamera.stopTakingPhotos = true;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -54,6 +54,7 @@ using UnityEngine;
             Debug.Log("ExitWater");
             PlayerMovement.isSwimming = false;
             PlayerMovement.stopMovement = false;
+            EnableCamera.stopTakingPhotos = false;
 
         }
     }
