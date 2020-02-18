@@ -23,6 +23,7 @@ public class AddItem : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 items.Add(hit.transform.gameObject);
+                inventory.GetComponent<Inventory>().collectables.Add(hit.transform.gameObject);
                 inventory.GetComponent<Inventory>().inventory(hit.transform.gameObject.name);
                 hit.transform.gameObject.SetActive(false);
               

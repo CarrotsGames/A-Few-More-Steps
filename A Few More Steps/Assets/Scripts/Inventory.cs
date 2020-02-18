@@ -4,31 +4,46 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+ 
+    [Header("Collected Items")]
     public List<GameObject> collectables;
+    private GameObject saveManager;
+    
     private void Start()
     {
-        // Get saved list 
-        // check inventory at list(i)
-        //// if list i == item number unlock item
-       
-        //for (int i = 0; i < collectables.Count; i++)
-        //{
-
-        //}
+        collectables = new List<GameObject>();
+        saveManager = GameObject.Find("SaveManager");
+   
+    }
+    private void Update()
+    {
+       if(Input.GetKeyDown(KeyCode.L))
+        {
+            saveManager.GetComponent<ItemSaveManager>().LoadInventory(this);
+        }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            saveManager.GetComponent<ItemSaveManager>().SaveInventory(this);
+        }
     }
     public void inventory(string itemName)
     {
-      
+        
         switch (itemName)
         {
             case "A":
-                collectables[0].SetActive(true);
+                transform.GetChild(0).gameObject.SetActive(true);
+             //   saveManager.GetComponent<ItemSaveManager>().SaveInventory(this);
                 break;
             case "B":
-                collectables[1].SetActive(true);
+                transform.GetChild(1).gameObject.SetActive(true);
+               // saveManager.GetComponent<ItemSaveManager>().SaveInventory(this);
+
                 break;
             case "C":
-                collectables[2].SetActive(true);
+                transform.GetChild(2).gameObject.SetActive(true);
+             //   saveManager.GetComponent<ItemSaveManager>().SaveInventory(this);
+
                 break;
         }
     }
