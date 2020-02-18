@@ -5,10 +5,13 @@ using UnityEngine;
 public class AddItem : MonoBehaviour
 {
     public float distance;
+    [Header("Collected Items")]
+    public List<GameObject> items;
     public LayerMask mask;
     private GameObject inventory;
     private void Start()
     {
+        items = new List<GameObject>();
         inventory = GameObject.Find("Inventory");
     }
     // Update is called once per frame
@@ -19,8 +22,10 @@ public class AddItem : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                items.Add(hit.transform.gameObject);
                 inventory.GetComponent<Inventory>().inventory(hit.transform.gameObject.name);
-                Destroy(hit.transform.gameObject);
+                hit.transform.gameObject.SetActive(false);
+              
             }
         }
     }

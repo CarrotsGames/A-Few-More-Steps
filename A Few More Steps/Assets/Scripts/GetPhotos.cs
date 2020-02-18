@@ -12,7 +12,7 @@ public class GetPhotos : MonoBehaviour
      List<Texture2D> photos;
     private void Start()
     {
-        mainCam = GameObject.Find("Main Camera");
+        mainCam = GameObject.Find("CMMainCamera");
         photoCam = GameObject.Find("PhotoCam");
         photos = new List<Texture2D>();
         toggle = 0;

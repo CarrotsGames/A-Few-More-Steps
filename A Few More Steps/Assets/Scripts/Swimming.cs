@@ -5,10 +5,12 @@ using UnityEngine;
 {
     PlayerMovement movement;
     private Vector3 moveDir = Vector3.zero;
-
+    private GameObject mainCam;
     // Start is called before the first frame update
     void Start()
     {
+        mainCam = GameObject.Find("Main Camera");
+
         movement = GetComponent<PlayerMovement>();
     }
 
@@ -28,7 +30,7 @@ using UnityEngine;
             moveDir.y = 1f;
         }
         moveDir = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
-        moveDir = Camera.main.transform.TransformDirection(moveDir);  
+        moveDir = mainCam.transform.TransformDirection(moveDir);  
         if(Input.GetKey(KeyCode.Space))
         {
             moveDir.y += 0.55f;
