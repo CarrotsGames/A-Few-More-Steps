@@ -315,3 +315,8 @@ C:\Users\s171011\Documents\AFMS\A-Few-More-Steps\A Few More Steps\Temp\bin\Debug
 C:\Users\s171011\Documents\AFMS\A-Few-More-Steps\A Few More Steps\obj\Debug\Assembly-CSharp-Editor.csproj.CopyComplete
 C:\Users\s171011\Documents\AFMS\A-Few-More-Steps\A Few More Steps\obj\Debug\Assembly-CSharp-Editor.dll
 C:\Users\s171011\Documents\AFMS\A-Few-More-Steps\A Few More Steps\obj\Debug\Assembly-CSharp-Editor.pdb
+C:\Users\s171011\Documents\AFMS\A-Few-More-Steps\A Few More Steps\Temp\bin\Debug\Unity.TerrainTools.dll
+C:\Users\s171011\Documents\AFMS\A-Few-More-Steps\A Few More Steps\Temp\bin\Debug\Unity.TerrainTools.Editor.dll
+C:\Users\s171011\Documents\AFMS\A-Few-More-Steps\A Few More Steps\Temp\bin\Debug\Assembly-CSharp.pdb
+C:\Users\s171011\Documents\AFMS\A-Few-More-Steps\A Few More Steps\Temp\bin\Debug\Unity.TerrainTools.pdb
+C:\Users\s171011\Documents\AFMS\A-Few-More-Steps\A Few More Steps\Temp\bin\Debug\Unity.TerrainTools.Editor.pdb
