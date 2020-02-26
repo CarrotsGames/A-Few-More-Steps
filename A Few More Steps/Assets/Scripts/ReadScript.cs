@@ -10,8 +10,9 @@ public class ReadScript : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit))
         { 
-            if (hit.transform.tag == "Book")
+            if (hit.transform.tag == "Book" && Input.GetKeyDown(KeyCode.Mouse0))
             {
+                hit.transform.gameObject.GetComponent<Notes>().ReadNote();
                 Debug.Log(hit.transform.name);
             }
         }
