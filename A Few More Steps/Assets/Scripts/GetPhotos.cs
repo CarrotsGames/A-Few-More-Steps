@@ -9,20 +9,25 @@ public class GetPhotos : MonoBehaviour
     private GameObject photoCam;
     private bool nullPhoto;
     int toggle;
-     List<Texture2D> photos;
+    List<Texture2D> photos;
+    private GameObject gameManager;
+    public static bool inInventory;
     private void Start()
-    {
+    {   
+        gameManager = GameObject.Find("GameManager");
+
         mainCam = GameObject.Find("CMMainCamera");
         photoCam = GameObject.Find("PhotoCam");
         photos = new List<Texture2D>();
         toggle = 0;
         // turn off galery
         transform.GetChild(0).gameObject.SetActive(false);
+        inInventory = false;
     }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.G) && !PlayerMovement.isSwimming)
-        {
+         {
             toggle++;
             TogglePics();
         }
@@ -31,32 +36,21 @@ public class GetPhotos : MonoBehaviour
     void TogglePics()
     {
         if (toggle > 1)
-        {
-            if (!EnableCamera.cameraOn)
-            {
-                PlayerMovement.stopMovement = false;
-            }
-            EnableCamera.stopTakingPhotos = false;
+        {         
             // turn off galery
             transform.GetChild(0).gameObject.SetActive(false);
             toggle = 0;
-            Cursor.lockState = CursorLockMode.Locked;
-            photoCam.transform.GetChild(0).GetComponent<MouseLook>().enabled = true;
-            mainCam.GetComponent<MouseLook>().enabled = true;
+            gameManager.GetComponent<GameManager>().ResumePlayerControls();
+            inInventory = false;
+
         }
         else
         {
-         
-            PlayerMovement.stopMovement = true;
-         
-            // stops camera from taking photos
-            EnableCamera.stopTakingPhotos = true;
+               
             // turn on gallery
             transform.GetChild(0).gameObject.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
-            photoCam.transform.GetChild(0).GetComponent<MouseLook>().enabled = false;
-            mainCam.GetComponent<MouseLook>().enabled = false;
-
+            gameManager.GetComponent<GameManager>().StopPLayerControls();
+            inInventory = true;
         }
     }
     public Sprite LoadNewSprite(string FilePath, float PixelsPerUnit = 100.0f)
